@@ -9,7 +9,7 @@ const DivImage = styled.div`
 export function Logo() {
     return (
         <DivImage>
-            {/* <Image width='44px' height='35px' src="/instaluraIcon.png"/> */}
+            <Image width='44px' height='35px' src="/instaluraIcon.png"/>
             <Image width='96px' height='24px' src="/instaluraText.png"/>
         </DivImage>
     )
