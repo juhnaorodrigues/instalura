@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "../../../theme/Logo";
 import { Button } from "../../Button";
+import Text from "../../foundation/Text";
 import { MenuWrapper } from "./styles/MenuWrapper";
 
 export default function Menu (){
@@ -31,7 +32,7 @@ export default function Menu (){
                     {links.map((item)=>{
                         return (
                             <li key={item.url}>
-                                <a href={item.url}>{item.texto}</a>
+                                <Text variant="smallestException" tag="a" href={item.url}>{item.texto}</Text>
                             </li>
                         )
                     })}

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import get from "lodash/get";
+import { MapVariantStyleText } from "../foundation/Text";
 
 const ghostCss = css`
     background: transparent;
@@ -33,6 +34,7 @@ export const Button = styled.button`
     opacity: 1;
     font-weight: bold;
     border-radius: 8px;
+    ${MapVariantStyleText.smallestException}
     ${function(props) {
         return mapaTipoBotao.get(props.type);
     }}
