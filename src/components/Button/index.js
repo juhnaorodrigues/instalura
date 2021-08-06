@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import get from "lodash/get";
 import { MapVariantStyleText } from "../foundation/Text";
+import { breakpointsMediaQuery } from "../../theme/utils/breakpointsMedia";
 
 const ghostCss = css`
     background: transparent;
@@ -44,4 +45,16 @@ export const Button = styled.button`
     &:focus {
         opacity: inherit.5;
     }
+
+    ${breakpointsMediaQuery({
+        xs : css`
+            /* All devices */
+            ${MapVariantStyleText.smallestException}
+            `,
+        md : css`
+            /* From md breakpoint */
+            ${MapVariantStyleText.paragraph1}
+        `,
+    })}
+
 `;

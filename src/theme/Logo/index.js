@@ -7,7 +7,7 @@ const DivImage = styled.div`
 export function Logo() {
     return (
         <DivImage>
-            <svg width="144" height="40" viewBox="0 0 1348 417" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="145" height="40" viewBox="0 0 1348 417" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect y="17.9975" width="400" height="399.003" rx="90" fill="url(#paint0_linear)"/>
                 <rect x="54.5" y="72.3928" width="290" height="289.214" rx="77.5" stroke="white" strokeWidth="25"/>
                 <ellipse cx="283" cy="137.698" rx="20" ry="19.9501" fill="white"/>
