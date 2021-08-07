@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import get from "lodash/get";
 import { MapVariantStyleText } from "../foundation/Text";
 import { breakpointsMediaQuery } from "../../theme/utils/breakpointsMedia";
+import { propertyToStyle } from "../../theme/utils/propertyToStyle";
 
 const ghostCss = css`
     background: transparent;
@@ -56,5 +57,8 @@ export const Button = styled.button`
             ${MapVariantStyleText.paragraph1}
         `,
     })}
+
+    ${ propertyToStyle('margin') }
+    ${ propertyToStyle('display') }
 
 `;
