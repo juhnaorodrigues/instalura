@@ -1,35 +1,35 @@
-import styled, { css } from "styled-components";
-import get from "lodash/get";
-import { MapVariantStyleText } from "../foundation/Text";
-import { breakpointsMediaQuery } from "../../theme/utils/breakpointsMedia";
-import { propertyToStyle } from "../../theme/utils/propertyToStyle";
+import styled, { css } from 'styled-components';
+import get from 'lodash/get';
+import { MapVariantStyleText } from '../foundation/Text';
+import breakpointsMediaQuery from '../../theme/utils/breakpointsMedia';
+import propertyToStyle from '../../theme/utils/propertyToStyle';
 
 const ghostCss = css`
     background: transparent;
-    color: ${(props) => get(props.theme,`colors.${props.variant}.color`)};
+    color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
 `;
 
 const primary = css`
-    background: ${function(props){
-        return get(props.theme,`colors.${props.variant}.color`);
-    }};
-    color: ${function(props){
-        return get(props.theme,`colors.${props.variant}.contrastText`);
-    }};
-`
+    background: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.color`);
+  }};
+    color: ${function (props) {
+    return get(props.theme, `colors.${props.variant}.contrastText`);
+  }};
+`;
 
 const mapaTipoBotao = new Map([
-    [
-        'primary',
-        primary
-    ],
-    [
-        'ghost',
-        ghostCss
-    ],
+  [
+    'primary',
+    primary,
+  ],
+  [
+    'ghost',
+    ghostCss,
+  ],
 ]);
 
-export const Button = styled.button`
+const Button = styled.button`
     border: 0;
     cursor: pointer;
     padding: 12px 26px;
@@ -37,28 +37,27 @@ export const Button = styled.button`
     font-weight: bold;
     border-radius: 8px;
     ${MapVariantStyleText.smallestException}
-    ${function(props) {
-        return mapaTipoBotao.get(props.type);
-    }}
-    transition: opacity ${({theme}) => theme.transition};
-    border-radius: ${({theme}) => theme.borderRadius};
+    ${(props) => mapaTipoBotao.get(props.type)}
+    transition: opacity ${({ theme }) => theme.transition};
+    border-radius: ${({ theme }) => theme.borderRadius};
     &:hover,
     &:focus {
         opacity: inherit.5;
     }
 
     ${breakpointsMediaQuery({
-        xs : css`
+    xs: css`
             /* All devices */
             ${MapVariantStyleText.smallestException}
             `,
-        md : css`
+    md: css`
             /* From md breakpoint */
             ${MapVariantStyleText.paragraph1}
         `,
-    })}
+  })}
 
-    ${ propertyToStyle('margin') }
-    ${ propertyToStyle('display') }
-
+    ${propertyToStyle('margin')}
+    ${propertyToStyle('display')}
 `;
+
+export { Button as default };

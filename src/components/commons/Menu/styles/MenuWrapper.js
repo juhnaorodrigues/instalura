@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { breakpointsMediaQuery } from '../../../../theme/utils/breakpointsMedia';
+import breakpointsMediaQuery from '../../../../theme/utils/breakpointsMedia';
 import { MapVariantStyleText } from '../../../foundation/Text';
 
-export const MenuWrapper = styled.nav`
+const MenuWrapper = styled.nav`
   font-family: 'Rubik', sans-serif;
   display: flex;
   align-items: center;
@@ -112,3 +112,5 @@ MenuWrapper.RightSide = styled.div`
     `,
   })}
 `;
+
+export { MenuWrapper as default };
