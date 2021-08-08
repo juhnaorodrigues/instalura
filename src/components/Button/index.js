@@ -10,12 +10,8 @@ const ghostCss = css`
 `;
 
 const primary = css`
-    background: ${function (props) {
-    return get(props.theme, `colors.${props.variant}.color`);
-  }};
-    color: ${function (props) {
-    return get(props.theme, `colors.${props.variant}.contrastText`);
-  }};
+    background: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
+    color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
 `;
 
 const mapaTipoBotao = new Map([
