@@ -1,14 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 import propertyToStyle from '../../../theme/utils/propertyToStyle';
+import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
 
 export const MapVariantStyleText = {
-  title: css`
-            font-size: ${({ theme }) => theme.TypographyVariants.title.fontSize};
-            font-weight: ${({ theme }) => theme.TypographyVariants.title.fontWeight};
-            line-height: ${({ theme }) => theme.TypographyVariants.title.lineHeight};
-    `,
   smallestException: css`
             font-size: ${({ theme }) => theme.TypographyVariants.smallestException.fontSize};
             font-weight: ${({ theme }) => theme.TypographyVariants.smallestException.fontWeight};
@@ -19,11 +16,31 @@ export const MapVariantStyleText = {
             font-weight: ${({ theme }) => theme.TypographyVariants.paragraph1.fontWeight};
             line-height: ${({ theme }) => theme.TypographyVariants.paragraph1.lineHeight};
     `,
+  title: css`
+      ${({ theme }) => css`
+        font-size: ${theme.TypographyVariants.titleXS.fontSize};
+        font-weight: ${theme.TypographyVariants.titleXS.fontWeight};
+        line-height: ${theme.TypographyVariants.titleXS.lineHeight};
+      `}
+      ${breakpointsMedia({
+    md: css`
+            ${({ theme }) => css`
+              font-size: ${theme.TypographyVariants.title.fontSize};
+              font-weight: ${theme.TypographyVariants.title.fontWeight};
+              line-height: ${theme.TypographyVariants.title.lineHeight};
+            `}
+          `,
+  })}
+  `,
 };
 
 const TextBase = styled.span`
     ${({ variant }) => MapVariantStyleText[variant]}
+    color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
+    
     ${propertyToStyle('textAlign')}
+    ${propertyToStyle('marginBottom')}
+    ${propertyToStyle('margin')}
 `;
 
 export default function Text({
@@ -40,12 +57,13 @@ export default function Text({
 Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
+  children: null,
 };
 
 // tags que podemos usar como texto:

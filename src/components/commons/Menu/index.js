@@ -36,8 +36,8 @@ export default function Menu() {
       </MenuWrapper.CentralSide>
 
       <MenuWrapper.RightSide>
-        <Button type="ghost" variant="secondary.main">Entrar</Button>
-        <Button type="primary" variant="primary.main">Cadastrar</Button>
+        <Button styleButton="ghost" variant="secondary.main">Entrar</Button>
+        <Button styleButton="primary" variant="primary.main">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
   );
