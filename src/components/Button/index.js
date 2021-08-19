@@ -33,7 +33,7 @@ const Button = styled.button`
     font-weight: bold;
     border-radius: 8px;
     ${MapVariantStyleText.smallestException}
-    ${(props) => mapaTipoBotao.get(props.type)}
+    ${(props) => mapaTipoBotao.get(props.styleButton)}
     transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
     &:hover,
@@ -52,8 +52,16 @@ const Button = styled.button`
         `,
   })}
 
-    ${propertyToStyle('margin')}
-    ${propertyToStyle('display')}
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
+  }
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%;
+  `};
+
+  ${propertyToStyle('margin')}
+  ${propertyToStyle('display')}
 `;
 
 export { Button as default };
