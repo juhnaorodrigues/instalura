@@ -39,7 +39,6 @@ jobs:
       - name: Run Linter!
         run: npm run lint
  
-      - name: Node Version
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
