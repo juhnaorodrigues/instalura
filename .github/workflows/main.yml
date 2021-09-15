@@ -34,8 +34,7 @@ jobs:
         run: node -v 
       
       - name: Install de Dependencias do Projeto
-        run: |
-          npm config set fund false, npm install
+        run: npm config set fund false, npm install
         
       - name: Run Linter!
         run: npm run lint
