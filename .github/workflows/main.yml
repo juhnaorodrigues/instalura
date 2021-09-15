@@ -33,6 +33,9 @@ jobs:
       - name: Node Version
         run: node -v 
       
+      - name: Install de Dependencias do Projeto
+        run: npm install
+        
       - name: Run Linter!
         run: npm run lint
  
