@@ -39,7 +39,6 @@ jobs:
       - name: Run Linter!
         run: npm run lint
  
-      # Runs a set of commands using the runners shell
       - name: Node Version
         run: |
           echo Add other actions to build,
