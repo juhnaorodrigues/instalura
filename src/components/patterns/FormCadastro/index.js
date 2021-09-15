@@ -61,10 +61,12 @@ function FormContent() {
         })
           .then((respostaConvertida) => {
             setSubmissionStatus(formStates.DONE);
+            // eslint-disable-next-line no-console
             console.log(respostaConvertida);
-          }).catch((err) => {
+          }).catch((error) => {
             setSubmissionStatus(formStates.ERROR);
-            console.error(err);
+            // eslint-disable-next-line no-console
+            console.log(error);
           });
       }}
     >
