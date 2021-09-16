@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import sucessAnimation from './animations/success.json';
 import errorAnimation from './animations/error.json';
@@ -24,13 +24,13 @@ function FormContent() {
   const [isFormSubmited, setIsFormSubmited] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState(formStates.DEFAULT);
 
-  function handleChange(event) {
+  const handleChange = useCallback((event) => {
     const fieldName = event.target.getAttribute('name');
     setUserData({
       ...userData,
       [fieldName]: event.target.value,
     });
-  }
+  }, [setUserData]);
 
   const isFormInvalid = userData.nome.length === 0 || userData.user.length === 0;
 
