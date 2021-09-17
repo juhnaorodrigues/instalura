@@ -1,4 +1,6 @@
 {
+  "name": "instalura-base", 
+  "version": "1.0.0", 
   "private": true,
   "scripts": {
     "dev": "next",
@@ -34,11 +36,12 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.2"
+    "husky": "^4.3.8"
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint"
+      "pre-push": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
     }
   },
   "license": "MIT",
