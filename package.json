@@ -1,4 +1,6 @@
 {
+  "name": "instalura-base", 
+  "version": "1.0.0", 
   "private": true,
   "scripts": {
     "dev": "next",
@@ -6,7 +8,8 @@
     "export": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "custom-script": "node ./script-teste.js"
+    "custom-script": "node ./script-teste.js",
+    "commit": "cz"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.4.1",
@@ -22,14 +25,29 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "^11.0.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.8"
   },
-  "license": "MIT"
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS" 
+    }
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
