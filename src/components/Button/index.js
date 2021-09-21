@@ -1,8 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
 import { MapVariantStyleText } from '../foundation/Text';
 import breakpointsMediaQuery from '../../theme/utils/breakpointsMedia';
 import propertyToStyle from '../../theme/utils/propertyToStyle';
+import Link from '../commons/Link';
 
 const ghostCss = css`
     background: transparent;
@@ -25,7 +29,7 @@ const mapaTipoBotao = new Map([
   ],
 ]);
 
-const Button = styled.button`
+const ButtonWrapper = styled.button`
     border: 0;
     cursor: pointer;
     padding: 12px 26px;
@@ -64,4 +68,25 @@ const Button = styled.button`
   ${propertyToStyle('display')}
 `;
 
-export { Button as default };
+export default function Button({ href, children, ...props }) {
+  const hasHref = Boolean(href);
+  const tag = hasHref ? Link : 'button';
+  return (
+    <ButtonWrapper
+      as={tag}
+      href={href}
+      {...props}
+    >
+      {children}
+    </ButtonWrapper>
+  );
+}
+
+Button.defaultProps = {
+  href: undefined,
+};
+
+Button.propTypes = {
+  href: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
