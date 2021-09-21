@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import propertyToStyle from '../../../theme/utils/propertyToStyle';
 import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
+import Link from '../../commons/Link';
 
 export const MapVariantStyleText = {
   smallestException: css`
@@ -44,11 +45,28 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, children, ...style
+  tag,
+  variant,
+  children,
+  href,
+  ...props
 }) {
+  if (href) {
+    return (
+      <TextBase
+        variant={variant}
+        as={Link}
+        href={href}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      >
+        {children}
+      </TextBase>
+    );
+  }
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <TextBase variant={variant} as={tag} {...style}>
+    <TextBase variant={variant} as={tag} {...props}>
       {children}
     </TextBase>
   );
@@ -58,12 +76,14 @@ Text.propTypes = {
   tag: PropTypes.string,
   variant: PropTypes.string,
   children: PropTypes.node,
+  href: PropTypes.string,
 };
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
   children: null,
+  href: '',
 };
 
 // tags que podemos usar como texto:
